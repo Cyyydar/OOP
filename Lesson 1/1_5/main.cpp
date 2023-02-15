@@ -3,6 +3,7 @@
 using namespace std;
 // Класс, реализующий динамический массив
 
+// методы должны вызываться в любом порядке и не приводить к неопределенному результату
 class DM {
     int *Mas;
     int K;
@@ -31,7 +32,7 @@ class DM {
             cin >> Mas[i];
         }
     }
-    void print(){
+    void print() const { //константный метод не дает ничего менять
         if(Mas == nullptr || K == 0){
             cout << "Array is not created\n";
             return;
