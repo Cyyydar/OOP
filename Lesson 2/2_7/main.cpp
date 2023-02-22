@@ -11,13 +11,24 @@ public:
 class B : public A{
 
 public:
-    B(int y): A(y){}
+    B(int y, int x) : A(x){}
+};
+
+class C : public B{
+
+public:
+    C(int z, int x, int y) : B(y,x) {}
+    /*
+        z -> C
+        x -> B -> A
+        y -> B -> B
+    */
 };
 
 int main()
 {
 //    B ob; - вызывет ошибку т.к. в конструктор необходимо передать значение
-    B ob(1);
+    C ob(1,2,3);
 
     return 0;
 }

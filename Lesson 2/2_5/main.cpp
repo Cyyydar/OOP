@@ -11,13 +11,13 @@ public:
 class B : public A{
 
 public:
-    B(int y): A(y){}
+    B(int x, int y): A(x){} // x для A, у для В
 };
 
 int main()
 {
 //    B ob; - вызывет ошибку т.к. в конструктор необходимо передать значение
-    B ob(1);
+    B ob(1,2);
 
     return 0;
 }
