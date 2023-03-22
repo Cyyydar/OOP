@@ -1,6 +1,5 @@
 // конструктор перемещения и оператор перемещения присвоением
 #include <iostream>
-#include <ctime>
 
 using namespace std;
 
@@ -17,6 +16,7 @@ public:
             for(int i = 0; i < ob.RazMas; i++)
                 Mas[i] = ob.Mas[i];
         }
+        cout << "\n Constructor kopirovaniya \n";
     }
 
     DinMas&operator=(const DinMas &ob){
@@ -32,6 +32,7 @@ public:
                 Mas[i] = ob.Mas[i];
             }
         }
+        cout << "\n Pereopredelennoe prisvoenie \n";
         return *this;
     }
 
@@ -42,6 +43,7 @@ public:
             ob.Mas = nullptr;
             ob.RazMas = 0;
         }
+        cout << "\n Kopirovanie peremesheniem \n";
     }
 
     DinMas&operator=(DinMas &&ob){
@@ -56,10 +58,12 @@ public:
             ob.Mas = nullptr;
             ob.RazMas = 0;
         }
+        cout << "\n Pereopredelennoe prisvoenie peremesheniem \n";
         return *this;
     }
 
     DinMas(int k, int m): Mas{nullptr}, RazMas{0} {
+        cout << "\n Konstructor s parametrami \n";
         if(k < 1)
             return;
         RazMas = k;
@@ -69,10 +73,12 @@ public:
     }
 
     DinMas(): Mas{nullptr}, RazMas{0} {
+        cout << "\n Konstructor bez parametrov \n";
     }
 
     ~DinMas(){
         delete[]Mas;
+        cout << "\n Destructor porabotal";
     }
 
     void Create (){
@@ -132,28 +138,26 @@ int main()
     for(int i = 0; i < KOL; i++)
         Massiv[i] = DinMas(i+1,i+1);
 
-    unsigned int sTime = clock();
+    cout << "\n Vivod massivov: \n\n";
 
-
-    for(long long i = 0; i < 99999999; i++){
-        obmen_kopirovaniem(Massiv[i%10],Massiv[i%10]); //25
-    }
-    unsigned int eTime = clock();
-
-    int cTime = (float)(eTime - sTime)/CLOCKS_PER_SEC;
-
-    cout << "Копирование: " << cTime << endl;
-
-    sTime = clock();
-
-    for(long long i = 0; i < 99999999; i++){
-        obmen_peremesheniem(Massiv[i%10], Massiv[i%10]); //6
+    for(int i = 0; i < KOL; i++){
+        Massiv[i].Show();
+        cout << endl;
     }
 
-    eTime = clock();
+    obmen_kopirovaniem(Massiv[0],Massiv[9]);
 
-    cout << "Перемещение: " << (float)(eTime - sTime)/CLOCKS_PER_SEC << endl;
+    for(int i = 0; i < KOL; i++){
+        Massiv[i].Show();
+        cout << endl;
+    }
 
-    cout << "Разница: " << (float)cTime/(float)((float)(eTime - sTime)/CLOCKS_PER_SEC);
+    obmen_peremesheniem(Massiv[1], Massiv[8]);
+
+    for(int i = 0; i < KOL; i++){
+        Massiv[i].Show();
+        cout << endl;
+    }
+
     return 0;
 }
