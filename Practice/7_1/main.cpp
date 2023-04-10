@@ -111,7 +111,7 @@ public:
     }
 
     ~DinMas2(){
-        delete[]Mas;
+        deleteMas();
         cout << "\n Destructor porabotal";
     }
 
