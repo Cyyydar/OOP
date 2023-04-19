@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1681885367 source:/home/alexey/OOP/Practice/8_1/sqr_int.cpp
+
+1681885555 source:/home/alexey/OOP/Practice/8_1/main.cpp
+	<iostream>
+
+1681885648 source:/home/alexey/OOP/Lesson 8/8_1/main.cpp
+	<iostream>
+

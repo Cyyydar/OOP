@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1681886126 source:/home/alexey/OOP/Practice/8_2/main.cpp
+	<iostream>
+
+1681887556 source:/home/alexey/OOP/Lesson 8/8_2/main.cpp
+	<iostream>
+
+1681887776 source:/home/alexey/OOP/Lesson 8/8_2/sorting.cpp
+
+1681887380 source:/home/alexey/OOP/Lesson 8/8_2/deleteArray.cpp
+
+1681887793 source:/home/alexey/OOP/Lesson 8/8_2/createArray.cpp
+	<iostream>
+
+1681887581 source:/home/alexey/OOP/Lesson 8/8_2/show.cpp
+	<iostream>
+
