@@ -1,0 +1,31 @@
+# depslib dependency file v1.0
+1681887793 source:/home/alexey/OOP/Lesson 8/8_3/createArray.cpp
+	<iostream>
+
+1681887380 source:/home/alexey/OOP/Lesson 8/8_3/deleteArray.cpp
+
+1682492487 source:/home/alexey/OOP/Lesson 8/8_3/main.cpp
+	"createArray.h"
+	"deleteArray.h"
+	"show.h"
+	"sorting.h"
+	"zeroingArray.h"
+	<iostream>
+
+1682491832 /home/alexey/OOP/Lesson 8/8_3/createArray.h
+
+1682491870 /home/alexey/OOP/Lesson 8/8_3/deleteArray.h
+
+1682491917 /home/alexey/OOP/Lesson 8/8_3/show.h
+
+1682492062 /home/alexey/OOP/Lesson 8/8_3/sorting.h
+
+1681887776 source:/home/alexey/OOP/Lesson 8/8_3/sorting.cpp
+
+1682492191 source:/home/alexey/OOP/Lesson 8/8_3/show.cpp
+	<iostream>
+
+1682492425 source:/home/alexey/OOP/Lesson 8/8_3/zeroingArray.cpp
+
+1682492257 /home/alexey/OOP/Lesson 8/8_3/zeroingArray.h
+

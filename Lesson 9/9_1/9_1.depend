@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1682497361 source:/home/alexey/OOP/Lesson 9/9_1/A.cpp
+	"A.h"
+
+1682497307 /home/alexey/OOP/Lesson 9/9_1/A.h
+
+1682497692 source:/home/alexey/OOP/Lesson 9/9_1/show.cpp
+	"A.h"
+	"B.h"
+	<iostream>
+
+1682497802 /home/alexey/OOP/Lesson 9/9_1/B.h
+
+1682497815 source:/home/alexey/OOP/Lesson 9/9_1/B.cpp
+	"B.h"
+
+1682497869 source:/home/alexey/OOP/Lesson 9/9_1/D.cpp
+	"D.h"
+
+1682497723 /home/alexey/OOP/Lesson 9/9_1/D.h
+

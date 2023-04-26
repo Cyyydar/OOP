@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1682493896 source:/home/alexey/OOP/Practice/8/createArray.cpp
+	<iostream>
+
+1682493632 source:/home/alexey/OOP/Practice/8/main.cpp
+	<iostream>
+
+1681892907 source:/home/alexey/OOP/Practice/8/printArray.cpp
+	<iostream>
+
+1681893642 source:/home/alexey/OOP/Practice/8/deleteArray.cpp
+
+1682493583 source:/home/alexey/OOP/Practice/8/multiple.cpp
+	<iostream>
+

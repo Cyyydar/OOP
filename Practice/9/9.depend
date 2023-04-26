@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1682499933 source:/home/alexey/OOP/Practice/9/main.cpp
+	<iostream>
+	"DinMas.h"
+
+1682499671 source:/home/alexey/OOP/Practice/9/DinMas.cpp
+	"DinMas.h"
+	<iostream>
+
+1682499734 /home/alexey/OOP/Practice/9/DinMas.h
+
+1682499899 source:/home/alexey/OOP/Practice/9/DinMasPublic.cpp
+	"DinMas.h"
+	<iostream>
+
