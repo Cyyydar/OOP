@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1684315053 source:/home/alexey/OOP/Lesson 12/12_5/main.cpp
+	<iostream>
+	<fstream>
+

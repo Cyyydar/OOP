@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1684311415 source:/home/alexey/OOP/Practice/12/main.cpp
+	<iostream>
+	<math.h>
+
