@@ -91,7 +91,8 @@ class D : private A {
 class human{
     string name;
     int age;
-    human(){ // Конструктор 
+public:
+    human(){ // Конструктор
         name = "Volodya";
         age = 99;
     }
@@ -107,12 +108,13 @@ class human{
 
 class student: public human{
     int course;
-    student(){ // Конструктор 
+public:
+    student(){ // Конструктор
         course = 1;
         // конструктор без параметров будет унаследован автоматически
     }
     student(string n, int a, int c){ // Конструктор с параметрами необходимо унаследовать в ручную
-    // и пробросить нужные параметры 
+    // и пробросить нужные параметры
         human(n, a);
     // а нужные параметры забрать себе
         course = c;
