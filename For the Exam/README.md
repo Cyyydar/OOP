@@ -127,13 +127,15 @@ public:
 - ### [↑](#Содержание) Конструктор копирования и перегрузка оператора "присвоение" <a name="5"></a> 
 ```c++
 DinMas(const DinMas &ob) { // если при создании экземпляра в скобках указать другой экземпляр, то он скопирует его данные
-    RazMas = K;
-    Mas = new int[RazMas];
-    for(int i = 0; i < RazMas; i++){
-        Mas[i] = ob.Mas[i];
+    if((ob.Mas != nullptr) && (ob.RazMas != 0)){
+        RazMas = ob.RazMas;
+        Mas = new int[RazMas];
+        for(int i = 0; i < RazMas; i++){
+            Mas[i] = ob.Mas[i];
+        }
+        cout << "\n Copy constructor";
     }
-    cout << "\n Copy constructor";
-    }
+}
 ```
 Перегрузка оператора "присвоение":
 ```c++
@@ -142,8 +144,17 @@ DinMas& DinMas::operator=(const DinMas &ob){
         cout << "\n Self copy error\n";
         return *this;
     }
-    for(int i = 0; i < this -> RazMas; i++)
-        this->Mas[i] = ob.Mas[i];
+    delete[]Mas;
+    Mas = nullptr;
+    RazMas = 0;
+
+    if((ob.Mas != nullptr) && (ob.RazMas != 0)){
+        Mas = new int[ob.RazMas];
+        RazMas = ob.RazMas;
+        for(int i = 0; i < this -> RazMas; i++){
+            this->Mas[i] = ob.Mas[i];
+        }
+    }
     cout << "\n Appropriation \n";
     return *this;
 }
