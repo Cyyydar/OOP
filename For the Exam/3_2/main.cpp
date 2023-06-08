@@ -60,19 +60,34 @@ public:
         }
         cout << endl;
     }
+
     dinMas(const dinMas& other) = delete;
     dinMas(const dinMas&& other) = delete;
     dinMas& operator=(const dinMas& other) = delete;
     dinMas& operator=(const dinMas&& other) = delete;
 };
 
+class dinMasInc: public dinMas{
+public:
+    dinMasInc(): dinMas() {};
+    dinMasInc(int k, float e, float g): dinMas(k,e,g) {};
+    dinMasInc& operator++() {
+        for(int i = 0; i < sizeMas; i++){
+            mas[i] += 1;
+        }
+        return *this;
+    }
+};
+
 int main()
 {
-    dinMas ob1;
+    dinMasInc ob1;
     ob1.show();
     ob1.fillMas(-4,10,-2);
     ob1.show();
     ob1.fillMas(4,10,-2);
+    ob1.show();
+    ++ob1;
     ob1.show();
     return 0;
 }

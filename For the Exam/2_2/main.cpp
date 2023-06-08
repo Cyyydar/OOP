@@ -91,18 +91,20 @@ public:
     }
 
     dinMas(dinMas &other){
-        K = other.K;
-        M = other.K;
-        mas = new float*[K];
-
-        for(int i = 0; i < K; i++){
-            mas[i] = new float[M];
-        }
-        for(int i = 0; i < K; i++){
-            for(int j = 0; j < M; j++){
-                mas[i][j] = other.mas[i][j];
-            }
-        }
+		if((other.mas != nullptr) && (other.K != 0) && (other.M != 0)){
+			K = other.K;
+			M = other.K;
+			mas = new float*[K];
+			
+			for(int i = 0; i < K; i++){
+				mas[i] = new float[M];
+			}
+			for(int i = 0; i < K; i++){
+				for(int j = 0; j < M; j++){
+					mas[i][j] = other.mas[i][j];
+				}
+			}
+		}
     }
     dinMas& operator=(dinMas &other) {
         if(this == &other){
@@ -110,27 +112,31 @@ public:
         }
         delMas();
 
-        K = other.K;
-        M = other.K;
-        mas = new float*[K];
-
-        for(int i = 0; i < K; i++){
-            mas[i] = new float[M];
-        }
-        for(int i = 0; i < K; i++){
-            for(int j = 0; j < M; j++){
-                mas[i][j] = other.mas[i][j];
-            }
-        }
+		if((other.mas != nullptr) && (other.K != 0) && (other.M != 0)){
+			K = other.K;
+			M = other.K;
+			mas = new float*[K];
+			
+			for(int i = 0; i < K; i++){
+				mas[i] = new float[M];
+			}
+			for(int i = 0; i < K; i++){
+				for(int j = 0; j < M; j++){
+					mas[i][j] = other.mas[i][j];
+				}
+			}
+		}
         return *this;
     }
     dinMas(dinMas &&other) {
-        K = other.K;
-        M = other.M;
-        mas = other.mas;
-        other.mas = nullptr;
-        other.K = 0;
-        other.M = 0;
+		if((other.mas != nullptr) && (other.K != 0) && (other.M != 0)){
+			K = other.K;
+			M = other.M;
+			mas = other.mas;
+			other.mas = nullptr;
+			other.K = 0;
+			other.M = 0;
+		}
     }
     dinMas& operator=(dinMas &&other){
         if(this == &other){
@@ -138,12 +144,14 @@ public:
         }
         delMas();
 
-        K = other.K;
-        M = other.M;
-        mas = other.mas;
-        other.mas = nullptr;
-        other.K = 0;
-        other.M = 0;
+		if((other.mas != nullptr) && (other.K != 0) && (other.M != 0)){
+			K = other.K;
+			M = other.M;
+			mas = other.mas;
+			other.mas = nullptr;
+			other.K = 0;
+			other.M = 0;
+		}
         return *this;
     }
 
