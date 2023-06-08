@@ -59,7 +59,7 @@ public:
 
             for(int i = 0; i < K; i++){
                 for(int j = 0; j < M; j++){
-                    other.mas[i][j] = mas[i][j];
+                    mas[i][j] = other.mas[i][j];
                 }
             }
         }
@@ -82,7 +82,7 @@ public:
 
         for(int i = 0; i < K; i++){
             for(int j = 0; j < M; j++){
-                other.mas[i][j] = mas[i][j];
+                mas[i][j] = other.mas[i][j];
             }
         }
         return *this;

@@ -59,7 +59,7 @@ public:
 
             for(int i = 0; i < K; i++){
                 for(int j = 0; j < M; j++){
-                    other.mas[i][j] = mas[i][j];
+                    mas[i][j] = other.mas[i][j];
                 }
             }
         }
@@ -82,7 +82,7 @@ public:
 
         for(int i = 0; i < K; i++){
             for(int j = 0; j < M; j++){
-                other.mas[i][j] = mas[i][j];
+                mas[i][j] = other.mas[i][j];
             }
         }
         return *this;
@@ -162,8 +162,10 @@ public:
 int main()
 {
     dinMas mas(2,3,4);
+    cout << "mas: \n";
     mas.show();
-    dinMas mas1(2,1,4);
+    dinMas mas1 = mas;
+    cout << "mas1: \n";
     mas1.show();
     mas1 = move(mas);
     mas.show();
