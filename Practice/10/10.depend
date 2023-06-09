@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1683704704 source:/home/alexey/OOP/Practice/10/main.cpp
+	<iostream>
+	"Matrix.h"
+	"Solve.h"
+
+1684918391 /home/alexey/OOP/Practice/10/Matrix.h
+
+1683703712 source:/home/alexey/OOP/Practice/10/Constructors.cpp
+	"Matrix.h"
+
+1684918402 source:/home/alexey/OOP/Practice/10/Matrix.cpp
+	<iostream>
+	"Matrix.h"
+
+1684918413 /home/alexey/OOP/Practice/10/Solve.h
+	<Matrix.h>
+
+1684918391 /home/alexey/OOP/Practice/10//Matrix.h
+
+1684918402 source:/home/alexey/OOP/Practice/10/Solve.cpp
+	"Solve.h"
+
