@@ -40,13 +40,18 @@ public:
     }
 
     void show() const {
-        if(mas == nullptr){
-            cout << "Array is not created\n";
+        ifstream fin{address};
+        float a = 0;
+        float s = 0;
+        fin >> s;
+        if(s == 0){
+            cout << "Array is empty\n";
             return;
         }
         cout << "Array: \n";
-        for(int i = 0; i < sizeMas; i++){
-            cout << mas[i] << " ";
+        for(int i = 0; i < s; i++){
+            fin >> a;
+            cout << a << " ";
         }
         cout << endl;
     }
@@ -60,8 +65,8 @@ public:
 
 int main()
 {
-    dinMas mas(3, 3.13, -1);
-    mas.show();
+    //dinMas mas(3, 3.13, -1);
+    //mas.show();
     dinMas mas1;
     mas1.show();
     return 0;
