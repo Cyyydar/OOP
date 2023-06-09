@@ -8,6 +8,8 @@
 5. [Конструктор копирования и перегрузка оператора "присвоение"](#5)
 6. [lvalue и rvalue](#6)
 7. [Конструктор перемещения и перегрузка оператора "присвоение"](#7)
+8. [Безопасный ввод](#8)
+9. [Работа с файлами](#9)
 ---
 - ### [↑](#Содержание) Классы и уровень доступа <a name="1"></a> 
 
@@ -256,4 +258,73 @@ __move()__ делает из переменной "a" rvalue и вызывает
         }
         return *this;
     }
+```
+
+- ### [↑](#Содержание) Безопасный ввод <a name="8"></a> 
+```cpp
+ #include <limits>
+ 
+ ...
+ 
+ double getDouble() {
+ 	double x;
+ 	while(true) {
+ 
+ 	cin >> x; // пытаемся ввести данные
+
+ 	if(cin.fail()) { // если если ошибка ввода, то сообщаем об этом
+ 		cin.clear();
+ 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+ 		cout << "Error, try again\n";
+ 		continue; // и пробуем еще раз
+ 	}
+ 	if(cin.peek()!='\n') { // если в буфере осталось что-то, выдаем ошибку
+ 		cin.ignore(numeric_limits<streamsize>::max(), '\n'); // очистка буфера
+ 		cout << "Error, try again\n";
+ 		continue;
+ 	}
+ 	cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+ 	return x; // возвращаем число
+ }
+ ```
+ 
+ 
+- ### [↑](#Содержание) Работа с файлами <a name="9"></a> 
+Запись в файл
+```cpp
+#include <fstream>
+...
+main(){
+    ofstream fout {"text.txt"};
+    for(int i = 0; i < 10; i++){
+        fout << i << " ";
+    }
+    return 0
+}
+```
+Чтение из файла
+```cpp
+#include <fstream>
+...
+main(){
+    ifstream fin {"text.txt"};
+    for(int i = 0; i < 10; i++){
+        fin >> a;
+        cout << a << " ";
+    }
+    return 0
+}
+```
+Удаление файла 
+```cpp
+#include <ctdio>
+...
+main(){
+    string address = "text.txt";
+    if (remove(address.c_str()) != 0){ // c_str() преобразует строку в чары.
+        // возвращает 0, если файл удален
+        cerr << "File was not removed";
+    }
+}
 ```
