@@ -318,7 +318,7 @@ main(){
 ```
 Удаление файла 
 ```cpp
-#include <ctdio>
+#include <cstdio>
 ...
 main(){
     string address = "text.txt";
