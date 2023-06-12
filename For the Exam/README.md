@@ -10,6 +10,8 @@
 7. [Конструктор перемещения и перегрузка оператора "присвоение"](#7)
 8. [Безопасный ввод](#8)
 9. [Работа с файлами](#9)
+10. [Дружественная функция](#10)
+11. [Перегрузка операторов](#11)
 ---
 - ### [↑](#Содержание) Классы и уровень доступа <a name="1"></a> 
 
@@ -326,5 +328,98 @@ main(){
         // возвращает 0, если файл удален
         cerr << "File was not removed";
     }
+}
+```
+
+- ### [↑](#Содержание) Дружественная функция <a name="10"></a> 
+Дружественные функции имеют доступ к приватным членам класса
+```cpp
+class A{
+    int b;
+  public:
+    friend void show_b(const A&);
+};
+
+int main()
+{
+    A ob1;
+    show_b(ob1);
+    return 0;
+}
+
+void show_b(const A&ob){
+    cout << " b=" << ob.b << endl;
+}
+```
+
+- ### [↑](#Содержание) Перегрузки операторов <a name="11"></a> 
+Индексация
+```cpp
+int& operator[](const int i){ // не безопасно т.к. можно выйти за пределы массива
+    return Mas[i];
+} // следует осуществлять проверку на выход за пределы массива
+
+const int& operator[](const int i) const {
+    return Mas[i];
+}
+```
+== и !=
+```cpp
+class DinMas{
+...
+    friend bool operator==(const DinMas&ob1, const DinMas&ob2);
+    friend bool operator!=(const DinMas&ob1, const DinMas&ob2);
+}
+
+...
+
+bool operator==(const DinMas&ob1, const DinMas&ob2){
+    if((ob1.Mas == nullptr) && ob2.Mas == nullptr)
+        return true;
+    if(ob1.RazMas != ob2.RazMas)
+        return false;
+    for(int i = 0; i < ob1.RazMas; i++)
+        if(ob1.Mas[i] != ob2.Mas[i])
+            return false;
+    return true;
+}
+
+bool operator!=(const DinMas&ob1, const DinMas&ob2){
+    if(ob1 == ob2)
+        return false;
+    return true;
+}
+```
+
+Унарный минус
+```cpp
+DinMas operator-()const{
+    cout << "\n Unarny minus \n";
+    DinMas ob(*this);
+    for(int i = 0; i < ob.RazMas; i++)
+        ob.Mas[i] = -ob.Mas[i];
+    cout << "";
+    return ob;
+}
+```
+Инкрементация
+```cpp
+DinMas& operator++(){ // префиксная
+    if(Mas == nullptr)
+        return *this;
+    for(int i = 0; i < RazMas; i++) {
+        ++Mas[i];
+    }
+    return *this;
+}
+
+const DinMas operator++(int x) { // постфиксная
+    if(Mas == nullptr)
+        return *this;
+    DinMas ob(*this);
+    for(int i = 0; i < RazMas; i++) {
+        ++Mas[i];
+    }
+    return ob;
 }
 ```
