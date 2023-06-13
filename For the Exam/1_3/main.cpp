@@ -6,14 +6,11 @@ class dinMas{
 private:
     int sizeMas = 0;
     float* mas = nullptr;
-    int& counter(){
-        static int c = 0;
-        return c;
-    }
+    static int counter;
 
 public:
 
-    dinMas(){++counter();};
+    dinMas(){++counter;};
     dinMas(int s, float e, float g){
         if(s > 0){
             mas = new float[s];
@@ -21,14 +18,14 @@ public:
             for(int i = 0; i < s; i++){
                 mas[i] = ((e+i)*(g-i))/(i+1);
             }
-            ++counter();
+            ++counter;
         }
     }
     ~dinMas(){
         delete mas;
         mas = nullptr;
         sizeMas = 0;
-        --counter();
+        --counter;
     }
 
     dinMas(const dinMas &ob) = delete;
@@ -36,7 +33,7 @@ public:
     dinMas(const dinMas &&ob) = delete;
 
     void getQuantity(){
-        cout << "Instances exist: " << counter() << endl;
+        cout << "Instances exist: " << counter << endl;
     }
     void show() const{
         if(sizeMas == 0 || mas == nullptr){
@@ -50,6 +47,8 @@ public:
         cout << endl;
     }
 };
+
+int dinMas::counter = 0;
 
 int main()
 {

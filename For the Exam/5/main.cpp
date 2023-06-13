@@ -66,8 +66,8 @@ public:
 int main()
 {
     dinMas mas(-3, 3.13, -1);
-    //mas.show();
-    dinMas mas1;
-    mas1.show();
+    mas.show();
+    //dinMas mas1;
+    //mas1.show();
     return 0;
 }
