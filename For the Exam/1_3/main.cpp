@@ -22,7 +22,7 @@ public:
         }
     }
     ~dinMas(){
-        delete mas;
+        delete[] mas;
         mas = nullptr;
         sizeMas = 0;
         --counter;

@@ -13,7 +13,7 @@ private:
     }
 
     void delMas(){
-        delete mas;
+        delete[] mas;
         mas = nullptr;
         sizeMas = 0;
     }
